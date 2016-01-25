@@ -5,7 +5,7 @@ This is one of my own projects for the
 Become a Web Developer*](http://careerfoundry.com/courses/how-to-become-a-web-developer) course.
 
 You can see the live webpage at :
-[*Jason Mans' Blog Ruby on Rails Demo*](https://jm-blog-railsdemo.herokuapp.com)
+[*Jason Mans' Blog ( A Ruby on Rails Demo )*](https://jm-blog-railsdemo.herokuapp.com)
 
 It is Basic Blog Web Application with the following features:
 - Able to create article entries.
