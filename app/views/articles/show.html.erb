@@ -1,35 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+  <h1> <%= @article.title %> </h1>
 
-<p>
-  <strong>Author:</strong>
-  <%= @article.author %>
-</p>
+  <h2>First posted by 
+    <strong><%= @article.author %></strong>
+    on 
+    <strong><%= @article.created_at.strftime("%d %b %Y") %></strong> 
+    at 
+    <strong><%= @article.created_at.strftime("%H:%M") %></strong>.
+  </h2>
+  <h2>Last updated on 
+    <strong><%= @article.updated_at.strftime("%d %b %Y") %></strong>
+    at 
+    <strong><%= @article.updated_at.strftime("%H:%M") %></strong>.
+  </h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
+  <hr>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @article.image_url %>
-</p>
+  <h3> <strong> <%= @article.description %> </strong> </h3>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+  <hr>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+  <div class="img-container">    
+    <%= image_tag(@article.image_url, class: "img-responsive") %>
+  </div>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+  <hr>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+  <article> <%= @article.text %> </article>
+
+  <h2>Comments</h2>
+  <%= render @article.comments %>
+
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+
+  <div class="center">
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %>
+  </div>  
+</div>  
