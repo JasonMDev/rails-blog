@@ -10,7 +10,7 @@ You can see the live webpage at :
 It is Basic Blog Web Application with the following features:
 - Able to create article entries.
 - Able to make comments on the articles.
-
+- It has a basic HTTP authentication to create, edit or delete post.
 
 Things you may want to cover:
 
