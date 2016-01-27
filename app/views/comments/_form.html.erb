@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">    
+  <div class="col-md-12">    
     <%= form_for([@article, @article.comments.build]) do |f| %>
 
       <div class="field">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Save", class: "btn btn-primary" %>
+        <%= f.submit "Save", class: "btn btn-success" %>
       </div>
 
     <% end %>

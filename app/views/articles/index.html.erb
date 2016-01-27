@@ -1,35 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+  <div class="jumbotron center">
+    <h1>All Articles of <strong>Jason's</strong> Blog</h1>
+  </div>
+  <hr>
+  <div class="center"> 
+    <%= link_to 'New Article', new_article_path,
+                                class: "btn btn-success" %>
+  </div>
 
-<h1>Listing Articles</h1>
+  <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        
+  <% @articles.each do |article| %>
+    <div class="row"> 
+      <div class="col-md-4">
+        <div class="img-container">    
+          <%= image_tag(article.image_url, class: "img-responsive") %>
+        </div>
+        <%article.text %>        
+      </div>
+      <div class="col-md-8">
+        
+        <h2><%= article.title %></h2>
+        <div><%= article.description %></div>
+        <hr>
+        <div class="center">
+          <%= link_to 'Read More', article, class: "btn btn-success" %>
+          <%= link_to 'Edit', edit_article_path(article), 
+              class: "btn btn-primary"  %>
+          <%= link_to 'Destroy', article, method: :delete, 
+              data: { confirm: 'Are you sure?'},
+              class: "btn btn-danger" %>
+        </div>      
+      </div>
+    </div>
+    <hr> 
+  <% end %>    
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.author %></td>
-        <td><%= article.description %></td>
-        <td><%= article.image_url %></td>
-        <td><%= article.text %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  
 
-<br>
+  <div class="center"> 
+    <%= link_to 'New Article', new_article_path,
+                                class: "btn btn-success" %>
+  </div>  
 
-<%= link_to 'New Article', new_article_path %>
+</div>   

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-12">
     <%= form_for(@article) do |f| %>
 
       <% if @article.errors.any? %>
@@ -35,7 +35,7 @@
         <%= f.text_area :text, class: 'form-control' %>
       </div>
       <div class="actions">
-        <%= f.submit "Save", class: "btn btn-primary" %>
+        <%= f.submit "Save", class: "btn btn-success" %>
       </div>
 
     <% end %>

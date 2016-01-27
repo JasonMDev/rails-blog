@@ -51,12 +51,13 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: $gray-light;
+  text-transform: uppercase;
 }
 
 h4 {
@@ -224,6 +225,11 @@ input {
   color: green;
 }
 
+
 article {
-  text-align: justified;
+  text-align: justify;
+  font-size: 12px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
 }

@@ -1,6 +1,40 @@
-<!-- Landing Header -->
-<div class="center jumbotron">
-  <h1>Welcome to my blog.</h1>
-  <h3>Hope you enjoy my journey in Web Development.</h3>  
+<div class="container-fluid">
+	<!-- Landing Header -->
+	<div class="center jumbotron">
+	  <h1>Welcome to my blog.</h1>
+	  <h3>Hope you enjoy my journey in Web Development.</h3> 
+	</div><!-- /container-fluid -->
 
-</div><!-- /container-fluid -->
+	<div class="row">
+		<div class="center">
+        <h1>Feature Article</h1>  
+    </div>
+    <hr>
+    <div class="col-md-4">
+      <div class="img-container">    
+        <%= image_tag(@featured_article.image_url, class: "img-responsive") %>
+      </div>	               
+    </div>
+
+    <div class="col-md-8">
+      <h2><%= @featured_article.title %></h2>
+      <div><%= @featured_article.description %></div>
+      <hr>
+      <%= link_to 'Read More', article_path(@featured_article), class: "btn btn-success" %>
+    		        
+    </div>    
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-12">
+        <%= @featured_article.text %> 
+    </div>
+	</div>	
+	<hr>
+
+	<div class="center">
+        <%= link_to 'Show Other Articles', articles_path, 
+										class: "btn btn-primary"  %>  
+  </div>
+
+</div>
