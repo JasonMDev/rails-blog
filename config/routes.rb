@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  root 'static_pages#landing_page'
-  resources :articles do
-    resources :comments
-  end
   
+  root 'static_pages#landing_page'
   get 'static_pages/index'
   get 'static_pages/about'
   get 'static_pages/contact'
+  
+  resources :articles do
+    resources :comments
+  end
+
+  resources :users
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  
 
   # Initial heroku test.
   # root 'application#hello'
