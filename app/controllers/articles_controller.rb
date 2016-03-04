@@ -8,7 +8,18 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if params[:q]
+      search_term = params[:q]
+      # Search for the term in DEVELOPMENT using SQL using "LIKE"
+      @articles = Article.where("text LIKE ?", "%#{search_term}%") if Rails.env.development?
+      # Search for the term in PRODUCTION env. using PostGRES "ilike"
+      @articles = Article.where("text ilike ?", "%#{search_term}%") if Rails.env.production?
+      
+    else
+      # All products
+      @articles = Article.all      
+    end 
+    
   end
 
   # GET /articles/1
