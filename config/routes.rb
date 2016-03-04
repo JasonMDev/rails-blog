@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   get 'static_pages/index'
   get 'static_pages/about'
   get 'static_pages/contact'
+  post 'static_pages/thank_you'
   
   resources :articles do
     resources :comments
   end
 
   resources :users
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { :registrations => "user_registrations"}
   
 
   # Initial heroku test.
