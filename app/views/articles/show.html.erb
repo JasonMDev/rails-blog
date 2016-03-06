@@ -3,7 +3,8 @@
 
   <div class="jumbotron center">
     <h1> <%= @article.title %> </h1>
-    <hr>  
+    <hr>
+    <!-- Add the average out of total rating pluralise here. -- >  
     <quote>
       <strong> <%= @article.description %> </strong>
     </quote>
@@ -49,12 +50,20 @@
 
   <div class="container-fluid">
     <h2>Comments</h2>
-    <%= render @article.comments %>
+    <!-- Add average rating here for overall-->
+    <div class="page_info">
+      <%= page_entries_info @comments %>
+    </div>
+    <%= will_paginate @comments %>
+    <%= render @comments %>
+    
+
+    <%= will_paginate @comments%>
   </div>  
 
   <div class="container-fluid">
     <h2>Add a comment:</h2>
-    <%= render 'comments/form' %>
+    <%= render 'comments/form' %>    
   </div>
 
   <hr>

@@ -9,7 +9,11 @@
                                 class: "btn btn-success" %>
   </div>
 
+  <div class="page_info">
+      <%= page_entries_info @articles %>
+  </div>
   <hr>
+  <%= will_paginate @articles %>
 
         
   <% @articles.each do |article| %>
@@ -38,7 +42,7 @@
     <hr> 
   <% end %>    
 
-  
+  <%= will_paginate @articles %>
 
   <div class="center"> 
     <%= link_to 'New Article', new_article_path,

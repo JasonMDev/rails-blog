@@ -11,13 +11,13 @@ class ArticlesController < ApplicationController
     if params[:q]
       search_term = params[:q]
       # Search for the term in DEVELOPMENT using SQL using "LIKE"
-      @articles = Article.where("text LIKE ?", "%#{search_term}%") if Rails.env.development?
+      @articles = Article.where("text LIKE ?", "%#{search_term}%").paginate(page: params[:page], per_page: 2) if Rails.env.development?
       # Search for the term in PRODUCTION env. using PostGRES "ilike"
-      @articles = Article.where("text ilike ?", "%#{search_term}%") if Rails.env.production?
+      @articles = Article.where("text ilike ?", "%#{search_term}%").paginate(page: params[:page], per_page: 2) if Rails.env.production?
       
     else
       # All products
-      @articles = Article.all      
+      @articles = Article.paginate(page: params[:page], per_page: 2)     
     end 
     
   end
@@ -25,6 +25,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
+    @comments = @article.comments.order("created_at DESC").paginate(page: params[:page], per_page: 3)
   end
 
   # GET /articles/new
