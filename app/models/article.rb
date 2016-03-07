@@ -4,8 +4,14 @@ class Article < ActiveRecord::Base
 	validates :title, presence: true,
 	                  length: { minimum: 5}
 
-  # Add the def Average rating
+  # Raty average rating
+  def average_rating
+    comments.average(:rating).to_f
+  end
 
-  # Add the total rating.
+  # Raty total rating.
+  def total_rating
+    comments.count(:rating).to_f
+  end
 
 end

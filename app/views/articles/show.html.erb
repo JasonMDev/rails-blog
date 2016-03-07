@@ -4,7 +4,15 @@
   <div class="jumbotron center">
     <h1> <%= @article.title %> </h1>
     <hr>
-    <!-- Add the average out of total rating pluralise here. -- >  
+    <!-- Add the average out of total rating pluralise here. --> 
+    <p>
+      <strong>Average Rating:</strong>
+      <div class="rated" data-score="<%= @article.average_rating %>"></div>
+      <br>
+      ( &nbsp 
+      <%= pluralize(@article.total_rating.to_f, "customer review") %> 
+      &nbsp ) 
+    </p> 
     <quote>
       <strong> <%= @article.description %> </strong>
     </quote>
@@ -50,7 +58,8 @@
 
   <div class="container-fluid">
     <h2>Comments</h2>
-    <!-- Add average rating here for overall-->
+    <!-- Raty average rating here for overall-->
+    <p>Average Rating: <div class="rated" data-score="<%= @article.average_rating %>"></div></p>
     <div class="page_info">
       <%= page_entries_info @comments %>
     </div>

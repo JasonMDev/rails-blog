@@ -27,6 +27,16 @@
       <div class="col-md-8">
         
         <h2><%= article.title %></h2>
+        <!-- Raty average rating here for overall-->
+        <p>
+          <strong>Average Rating:</strong>
+          <div class="rated" data-score="<%= article.average_rating %>">
+          </div>
+          <br>
+          ( &nbsp 
+          <%= pluralize(article.total_rating.to_f, "customer review") %> 
+          &nbsp ) 
+        </p>
         <div><%= article.description %></div>
         <hr>
         <div class="center">

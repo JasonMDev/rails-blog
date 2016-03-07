@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    # Try article without param.
     @article = Article.find(params[:id])
     @comments = @article.comments.order("created_at DESC").paginate(page: params[:page], per_page: 3)
   end
