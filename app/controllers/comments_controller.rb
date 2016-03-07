@@ -6,8 +6,21 @@ class CommentsController < ApplicationController
 
 	def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    @comment = @article.comments.new(comment_params)
+    #@comment.user = current_user
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @article, notice: 'Review was created succesfully.' }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { redirect_to @article, alert: 'Review was not saved succesfully.' }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+
+      end
+    end  
+
+
+
   end
 
   def destroy
