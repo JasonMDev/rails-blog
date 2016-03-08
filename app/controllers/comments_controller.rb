@@ -1,13 +1,10 @@
 class CommentsController < ApplicationController
 
-	http_basic_authenticate_with name: "User", 
-															 password: "Secret", 
-															 only: :destroy
-
 	def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.new(comment_params)
-    #@comment.user = current_user
+    @comment.user = current_user
+    @comment.commenter =  @comment.user.first_name + " " + @comment.user.last_name 
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @article, notice: 'Review was created succesfully.' }
@@ -32,7 +29,7 @@ class CommentsController < ApplicationController
  
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body, :rating)
+      params.require(:comment).permit(:commenter, :body, :rating, :user_id)
     end
     
 end

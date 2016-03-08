@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Users</h1>
 
 <table>
@@ -9,6 +7,7 @@
       <th>Last name</th>
       <th>Author</th>
       <th>Moderator</th>
+      <th>Editor</th>
       <th>Admin</th>
       <th colspan="3"></th>
     </tr>
@@ -21,6 +20,7 @@
         <td><%= user.last_name %></td>
         <td><%= user.author %></td>
         <td><%= user.moderator %></td>
+        <td><%= user.editor %></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>

@@ -1,9 +1,6 @@
 class ArticlesController < ApplicationController
   # before_filter :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: "User", 
-                               password: "Secret", 
-                               except: [:index, :show]
 
   # GET /articles
   # GET /articles.json
@@ -43,6 +40,8 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
+    @article.author =  @article.user.first_name + " " + @article.user.last_name   
 
     respond_to do |format|
       if @article.save
@@ -87,6 +86,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :author, :description, :image_url, :text)
+      params.require(:article).permit(:title, :author, :description, :image_url, :text, :user_id)
     end
 end

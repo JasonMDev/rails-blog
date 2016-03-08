@@ -15,23 +15,39 @@
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
+
   <div class="field">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
   <div class="field">
     <%= f.label :author %><br>
     <%= f.check_box :author %>
   </div>
+
   <div class="field">
     <%= f.label :moderator %><br>
     <%= f.check_box :moderator %>
   </div>
+
+  <div class="field">
+    <%= f.label :editor %><br>
+    <%= f.check_box :editor %>
+  </div>
+
   <div class="field">
     <%= f.label :admin %><br>
     <%= f.check_box :admin %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

@@ -1,5 +1,4 @@
 <div class="container-fluid">
-  <p id="notice"><%= notice %></p>
 
   <div class="jumbotron center">
     <h1> <%= @article.title %> </h1>
@@ -17,7 +16,12 @@
       <strong> <%= @article.description %> </strong>
     </quote>
     <hr>
-    <h3>By <strong><%= @article.author %></strong></h3>
+    <h3>
+      By 
+      <strong>
+        <%= @article.author %>
+      </strong>
+    </h3>
     <%= @article.updated_at.strftime("%d %B %Y") %>
   </div>  
 
