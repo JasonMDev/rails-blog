@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :article
   belongs_to :user
-  validates :commenter, presence: true,
-	                  length: { minimum: 5}
+  validates :body, :user, presence: true
+  validates :rating, numericality: { only_integer: true}
+
 end

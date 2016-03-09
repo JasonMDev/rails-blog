@@ -1,5 +1,9 @@
-<% flash.each do |message_type, message| %>
-  <% alert_type = 'success' if message_type === 'notice' %>
-  <% alert_type = 'danger' if message_type === 'alert' %>
-  <div id="<%= message_type %>" class="alert alert-<%= alert_type %>"><%= message %></div>  
-<% end %>
+<div class="container">
+  <% flash.each do |message_type, message| %>
+
+    <% alert_type = 'success' if message_type === 'notice' %>
+    <% alert_type = 'danger' if message_type === 'alert' %>
+    <div id="<%= message_type %>" class="alert alert-<%= alert_type %>"><%= message %></div>  
+
+  <% end %>
+</div>  

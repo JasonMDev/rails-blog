@@ -12,12 +12,13 @@ class CommentsController < ApplicationController
       else
         format.html { redirect_to @article, alert: 'Review was not saved succesfully.' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
-
       end
     end  
+  end
 
-
-
+  def edit
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
   end
 
   def destroy
@@ -26,10 +27,24 @@ class CommentsController < ApplicationController
   	@comment.destroy
   	redirect_to article_path(@article)
   end
+
+  def update
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])    
+    respond_to do |format|
+      if @comment.update_attributes(comment_params)
+        format.html { redirect_to edit_article_comment_path(@article, @comment), notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @comment }
+      else
+        format.html { render :edit }
+        #format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
  
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body, :rating, :user_id)
+      params.require(:comment).permit(:commenter, :body, :rating, :user_id, :reviewed, :approved)
     end
     
 end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  #patch '/articles/:article_id/comments/:id/edit'  => 'comments#update'
+
   resources :users
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { :registrations => "user_registrations"}
   

@@ -18,22 +18,42 @@
         <%= f.label :title %><br>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
-      <div class="field">
-        <%= f.label :author %><br>
-        <%= f.text_field :author, class: 'form-control' %>
-      </div>
+
       <div class="field">
         <%= f.label :description %><br>
         <%= f.text_area :description, class: 'form-control' %>
       </div>
+
       <div class="field">
         <%= f.label :image_url %><br>
         <%= f.text_field :image_url, class: 'form-control' %>
       </div>
+
       <div class="field">
         <%= f.label :text %><br>
         <%= f.text_area :text, class: 'form-control' %>
       </div>
+
+      <% if signed_in? && current_user.moderator? %>
+
+        <div class="field">
+          <%= f.label :edited, class: "checkbox inline" do  %>
+              <%= f.check_box :edited %>
+              <span>Edited</span>
+          <% end %>
+        </div>
+
+      <% end %>   
+
+      <% if signed_in? && current_user.editor? %>
+        <div class="field">
+          <%= f.label :published, class: "checkbox inline" do  %>
+              <%= f.check_box :published %>
+              <span>Published</span>
+          <% end %>
+        </div>
+      <% end %>    
+      
       <div class="actions">
         <%= f.submit "Save", class: "btn btn-success" %>
       </div>

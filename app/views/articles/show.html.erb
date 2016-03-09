@@ -1,5 +1,4 @@
-<div class="container-fluid">
-
+<div class="container">
   <div class="jumbotron center">
     <h1> <%= @article.title %> </h1>
     <hr>
@@ -53,31 +52,37 @@
     <strong><%= @article.updated_at.strftime("%H:%M") %></strong>.
   </p>
   <hr>
+
   <div class="center">  
     <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-primary" %> |
     <%= link_to 'Back', articles_path, class: "btn btn-info"  %>   
   </div> 
   <hr>
 
+  <div class="container">
 
-  <div class="container-fluid">
     <h2>Comments</h2>
+
     <!-- Raty average rating here for overall-->
-    <p>Average Rating: <div class="rated" data-score="<%= @article.average_rating %>"></div></p>
+    <p>
+      Average Rating: 
+      <div class="rated" data-score="<%= @article.average_rating %>">
+      </div>
+    </p>
+
     <div class="page_info">
       <%= page_entries_info @comments %>
     </div>
-    <%= will_paginate @comments %>
+
+    <%= will_paginate @comments %>  
+
     <%= render @comments %>
-    
 
     <%= will_paginate @comments%>
-  </div>  
-
-  <div class="container-fluid">
-    <h2>Add a comment:</h2>
-    <%= render 'comments/form' %>    
+  
   </div>
+  
+  <%= render 'comments/form' %>  
 
   <hr>
   <div class="center">  

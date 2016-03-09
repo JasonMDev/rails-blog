@@ -255,3 +255,24 @@ article {
   font-size: 14px;
   line-height: 20px;
 }
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding: 0.5em 0;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#user_remember_me {  
+  width: 13px;
+  padding: 0.5em 0 0 0;
+  margin: 4px 0 0 0;
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}

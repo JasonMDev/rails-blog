@@ -1,20 +1,23 @@
-<div class="container-fluid">
+<div class="container">
   
   <div class="jumbotron center">
     <h1>All Articles of <strong>Jason's</strong> Blog</h1>
   </div>
   <hr>
-  <div class="center"> 
-    <%= link_to 'New Article', new_article_path,
-                                class: "btn btn-success" %>
-  </div>
+
+  <% if signed_in? && current_user.author? %>
+    <div class="center"> 
+      <%= link_to 'New Article', new_article_path,
+                                  class: "btn btn-success" %>
+    </div>
+  <% end %>  
 
   <div class="page_info">
-      <%= page_entries_info @articles %>
+    <%= page_entries_info @articles %>
   </div>
+
   <hr>
   <%= will_paginate @articles %>
-
         
   <% @articles.each do |article| %>
     <div class="row"> 
@@ -43,9 +46,11 @@
           <%= link_to 'Read More', article, class: "btn btn-success" %>
           <%= link_to 'Edit', edit_article_path(article), 
               class: "btn btn-primary"  %>
-          <%= link_to 'Destroy', article, method: :delete, 
-              data: { confirm: 'Are you sure?'},
-              class: "btn btn-danger" %>
+          <% if signed_in? && current_user.admin? %>
+            <%= link_to 'Destroy', article, method: :delete, 
+                data: { confirm: 'Are you sure?'},
+                class: "btn btn-danger" %>
+          <% end %>      
         </div>      
       </div>
     </div>
@@ -54,9 +59,11 @@
 
   <%= will_paginate @articles %>
 
-  <div class="center"> 
-    <%= link_to 'New Article', new_article_path,
-                                class: "btn btn-success" %>
-  </div>  
+  <% if signed_in? && current_user.author? %>
+    <div class="center"> 
+      <%= link_to 'New Article', new_article_path,
+                                  class: "btn btn-success" %>
+    </div>
+  <% end %>    
 
 </div>   

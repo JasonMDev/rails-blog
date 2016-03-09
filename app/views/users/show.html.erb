@@ -1,38 +1,39 @@
+  <div class="container">
+  <p>
+    <strong>First name:</strong>
+    <%= @user.first_name %>
+  </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
+    <strong>Author:</strong>
+    <%= @user.author %>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @user.author %>
-</p>
+  <p>
+    <strong>Moderator:</strong>
+    <%= @user.moderator %>
+  </p>
 
-<p>
-  <strong>Moderator:</strong>
-  <%= @user.moderator %>
-</p>
+  <p>
+    <strong>Editor:</strong>
+    <%= @user.editor %>
+  </p>
 
-<p>
-  <strong>Editor:</strong>
-  <%= @user.editor %>
-</p>
+  <p>
+    <strong>Admin:</strong>
+    <%= @user.admin %>
+  </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+</div>

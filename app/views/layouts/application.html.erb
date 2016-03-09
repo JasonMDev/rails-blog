@@ -12,17 +12,16 @@
   </head>
   <body>
     <!-- Header -->
-      <%= render 'layouts/header' %>
-      <!-- Body -->
+    <%= render 'layouts/header' %>
+
+    <!-- Devise "notices" and "alerts" -->
+    <%= render 'layouts/notices_and_alerts' %>
+
+    <!-- Body -->
+    <%= yield %>
+
+      <!-- Footer -->
       <div class="container">
-
-        <!-- Devise "notices" and "alerts" -->
-        <%= render 'layouts/notices_and_alerts' %>  
-
-        <!-- Normal Body -->
-        <%= yield %>
-      
-        <!-- Footer -->
         <%= render 'layouts/footer' %>
       </div>
 
