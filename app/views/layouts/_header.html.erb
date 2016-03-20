@@ -1,22 +1,20 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Jason Mans' Blog", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", static_pages_about_path %></li>
-        <li><%= link_to "Contact", static_pages_contact_path %></li>
-        <li><%= link_to 'Show Articles', articles_path %></li> 
-        <!-- Remember login if and else here from sample app -->        
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container navbar-container">
+
     <%= link_to "Jason Mans' Blog", root_path, id: "logo" %>
-    <nav>
+    
+    <!-- Smaller and Mobile Screen Nav bar-->
+    <div class="navbar-header">
+      <!-- Navbar Toggle Button-->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">            
+        <span class="sr-only">Toggle Navigation </span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <!-- /navbar toggle button-->      
+    </div> <!-- /navbar-header {Mobile Screen}-->
+
+    <nav class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", static_pages_about_path %></li>
@@ -50,13 +48,13 @@
         <!-- Not Logged-in -->
         <% else %>
           <li><%= link_to('Login', new_user_session_path) %>
-        <% end %>
-
-        <!-- Search Form -->
-        <%= render 'layouts/search_form' %>
-        
+        <% end %>        
 
       </ul>
+
+      <!-- Search Form -->
+      <%= render 'layouts/search_form' %>
+
     </nav>
   </div>
 </header>
